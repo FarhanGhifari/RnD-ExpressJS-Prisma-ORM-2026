@@ -1,0 +1,463 @@
+{
+	"id": "7c07a35f-575e-480d-a5a8-63bc387687fc",
+	"name": "Express Basic Product API",
+	"timestamp": "2026-07-02T03:15:26.917Z",
+	"collection_id": "48467695-a01f27cb-af88-480f-a087-75ddebdced2c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 36,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-07-02T03:15:25.858Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6cfc05c4-fce3-45b8-99b5-2fde24e789ff",
+			"name": "Create Product",
+			"url": "http://localhost:3000/api/products",
+			"time": 152,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201 (Created)": true,
+				"Response success is true": true,
+				"Response time is less than 300ms": true,
+				"Product data is successfully returned & ID is saved": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201 (Created)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product data is successfully returned & ID is saved": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				152
+			],
+			"allTests": [
+				{
+					"Status code is 201 (Created)": true,
+					"Response success is true": true,
+					"Response time is less than 300ms": true,
+					"Product data is successfully returned & ID is saved": true
+				}
+			]
+		},
+		{
+			"id": "c2d85787-5e23-4836-a8e0-fb3d129231f3",
+			"name": "Create Product - Invalid Input",
+			"url": "http://localhost:3000/api/products",
+			"time": 12,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500 (Internal Server Error)": true,
+				"Response success is false": true,
+				"Response time is less than 300ms": true,
+				"Returns validation error message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500 (Internal Server Error)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns validation error message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 500 (Internal Server Error)": true,
+					"Response success is false": true,
+					"Response time is less than 300ms": true,
+					"Returns validation error message": true
+				}
+			]
+		},
+		{
+			"id": "8036d28c-adaa-4149-baf0-5f85961bbb0a",
+			"name": "Get All Products",
+			"url": "http://localhost:3000/api/products",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 (OK)": true,
+				"Response success is true": true,
+				"Response time is less than 300ms": true,
+				"Response returns array of products": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response returns array of products": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200 (OK)": true,
+					"Response success is true": true,
+					"Response time is less than 300ms": true,
+					"Response returns array of products": true
+				}
+			]
+		},
+		{
+			"id": "f10057df-5813-4476-86cb-07c8247de4ed",
+			"name": "Get Product by ID",
+			"url": "http://localhost:3000/api/products/11",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 (OK)": true,
+				"Response success is true": true,
+				"Response time is less than 300ms": true,
+				"Product ID matches original created product": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product ID matches original created product": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200 (OK)": true,
+					"Response success is true": true,
+					"Response time is less than 300ms": true,
+					"Product ID matches original created product": true
+				}
+			]
+		},
+		{
+			"id": "d8a2e51d-dbfe-477f-b7f3-03d6325a9311",
+			"name": "Get Product by ID - Not Found",
+			"url": "http://localhost:3000/api/products/999999",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 (Not Found)": true,
+				"Response success is false": true,
+				"Response time is less than 300ms": true,
+				"Returns error message 'Produk tidak ditemukan'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 (Not Found)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns error message 'Produk tidak ditemukan'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 404 (Not Found)": true,
+					"Response success is false": true,
+					"Response time is less than 300ms": true,
+					"Returns error message 'Produk tidak ditemukan'": true
+				}
+			]
+		},
+		{
+			"id": "6358b398-a59c-4d48-ad28-74dbfae268f0",
+			"name": "Update Product",
+			"url": "http://localhost:3000/api/products/11",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 (OK)": true,
+				"Response success is true": true,
+				"Response time is less than 300ms": true,
+				"Product data updated successfully": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product data updated successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200 (OK)": true,
+					"Response success is true": true,
+					"Response time is less than 300ms": true,
+					"Product data updated successfully": true
+				}
+			]
+		},
+		{
+			"id": "88b64e82-cef2-425b-ac01-ac4143b1d659",
+			"name": "Update Product - Not Found",
+			"url": "http://localhost:3000/api/products/999999",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 (Not Found)": true,
+				"Response success is false": true,
+				"Response time is less than 300ms": true,
+				"Returns error message 'Produk tidak ditemukan'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 (Not Found)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns error message 'Produk tidak ditemukan'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 404 (Not Found)": true,
+					"Response success is false": true,
+					"Response time is less than 300ms": true,
+					"Returns error message 'Produk tidak ditemukan'": true
+				}
+			]
+		},
+		{
+			"id": "7dc77419-5578-47d2-84b8-dfc4615016a4",
+			"name": "Delete Product",
+			"url": "http://localhost:3000/api/products/11",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 (OK)": true,
+				"Response success is true": true,
+				"Response time is less than 300ms": true,
+				"Product deleted successfully message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product deleted successfully message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200 (OK)": true,
+					"Response success is true": true,
+					"Response time is less than 300ms": true,
+					"Product deleted successfully message": true
+				}
+			]
+		},
+		{
+			"id": "eb83ffb4-42d6-4ce5-abe8-6bef4881f705",
+			"name": "Delete Product - Not Found",
+			"url": "http://localhost:3000/api/products/999999",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 (Not Found)": true,
+				"Response success is false": true,
+				"Response time is less than 300ms": true,
+				"Returns error message 'Produk tidak ditemukan'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 (Not Found)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response success is false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns error message 'Produk tidak ditemukan'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 404 (Not Found)": true,
+					"Response success is false": true,
+					"Response time is less than 300ms": true,
+					"Returns error message 'Produk tidak ditemukan'": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 207,
+	"collection": {
+		"requests": [
+			{
+				"id": "6cfc05c4-fce3-45b8-99b5-2fde24e789ff",
+				"method": "POST"
+			},
+			{
+				"id": "c2d85787-5e23-4836-a8e0-fb3d129231f3",
+				"method": "POST"
+			},
+			{
+				"id": "8036d28c-adaa-4149-baf0-5f85961bbb0a",
+				"method": "GET"
+			},
+			{
+				"id": "f10057df-5813-4476-86cb-07c8247de4ed",
+				"method": "GET"
+			},
+			{
+				"id": "d8a2e51d-dbfe-477f-b7f3-03d6325a9311",
+				"method": "GET"
+			},
+			{
+				"id": "6358b398-a59c-4d48-ad28-74dbfae268f0",
+				"method": "PUT"
+			},
+			{
+				"id": "88b64e82-cef2-425b-ac01-ac4143b1d659",
+				"method": "PUT"
+			},
+			{
+				"id": "7dc77419-5578-47d2-84b8-dfc4615016a4",
+				"method": "DELETE"
+			},
+			{
+				"id": "eb83ffb4-42d6-4ce5-abe8-6bef4881f705",
+				"method": "DELETE"
+			}
+		]
+	}
+}
