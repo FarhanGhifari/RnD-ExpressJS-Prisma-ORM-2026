@@ -4,6 +4,9 @@ const productRoute = require('./routes/productRoute');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Mengaktifkan format JSON response (Pretty-Print) agar rapi dibaca di browser
+app.set('json spaces', 2);
+
 // Middleware internal untuk parsing request body berformat JSON
 app.use(express.json());
 
