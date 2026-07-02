@@ -9,7 +9,7 @@ RESTful API sederhana untuk mengelola data produk menggunakan **Express.js v5.2.
 - **RESTful API CRUD Lengkap**: Penanganan pembuatan, pembacaan, pembaruan, dan penghapusan produk.
 - **Prisma ORM & PostgreSQL**: Manajemen skema database yang aman dengan validasi tipe data mutlak (*Type-Safety*).
 - **Otomatisasi Database Seeding**: Skrip pengisian data tiruan (*mock data*) otomatis untuk mempermudah pengujian.
-- **Skrip Pengujian Postman**: Collection Postman terintegrasi yang mencakup pengujian sukses (*Happy Path*), skenario gagal (*Sad Path* seperti error input atau data tidak ditemukan), dan batas performa waktu respon (*Response Time Check* di bawah 300ms).
+- **Skrip Pengujian Postman**: Collection Postman terintegrasi yang mencakup pengujian sukses, skenario gagal seperti error input atau data tidak ditemukan dan batas performa waktu respon (*Response Time Check* di bawah 300ms).
 
 ---
 
