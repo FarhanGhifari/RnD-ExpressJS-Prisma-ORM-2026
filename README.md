@@ -79,7 +79,7 @@ express-basic/
 ├── prisma/
 │   ├── migrations/           # Rekam jejak migrasi database
 │   ├── schema.prisma         # File konfigurasi utama Prisma ORM & Model Data
-│   └── seed.js               # Skrip pengisian data tiruan awal
+│   └── seed.js               # Skrip pengisian data dummy
 ├── src/
 │   ├── config/
 │   │   └── prisma.js         # Instansiasi Singleton Prisma Client
