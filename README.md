@@ -49,7 +49,7 @@ Jalankan migrasi skema Prisma untuk membentuk struktur tabel `Product` secara fi
 npx prisma migrate dev --name init
 ```
 
-### 4. Database Seeding (Opsional)
+### 4. Database Seeding
 Untuk mengisi database Anda dengan data tiruan awal agar API dapat langsung diuji, jalankan skrip seeder bawaan:
 ```bash
 npx prisma db seed
