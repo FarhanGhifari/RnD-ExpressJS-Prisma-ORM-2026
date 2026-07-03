@@ -1,23 +1,17 @@
-const prisma = require('../config/prisma');
+const productUseCase = require("../usecases/productUseCase");
 
 /**
  * @desc    Membuat data produk baru
  * @route   POST /api/products
  */
 exports.createProduct = async (req, res) => {
-    const { name, price, stock } = req.body;
-    try {
-        const product = await prisma.product.create({
-            data: { 
-                name, 
-                price: Number(price), 
-                stock: Number(stock) 
-            }
-        });
-        res.status(201).json({ success: true, data: product });
-    } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
-    }
+  try {
+    const product = await productUseCase.createProduct(req.body);
+    res.status(201).json({ success: true, data: product });
+  } catch (error) {
+    const statusCode = error.statusCode || 500;
+    res.status(statusCode).json({ success: false, error: error.message });
+  }
 };
 
 /**
@@ -25,12 +19,12 @@ exports.createProduct = async (req, res) => {
  * @route   GET /api/products
  */
 exports.getAllProducts = async (req, res) => {
-    try {
-        const products = await prisma.product.findMany();
-        res.status(200).json({ success: true, data: products });
-    } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
-    }
+  try {
+    const products = await productUseCase.getAllProducts();
+    res.status(200).json({ success: true, data: products });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
 };
 
 /**
@@ -38,20 +32,13 @@ exports.getAllProducts = async (req, res) => {
  * @route   GET /api/products/:id
  */
 exports.getProductById = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const product = await prisma.product.findUnique({ 
-            where: { id: Number(id) } 
-        });
-        
-        if (!product) {
-            return res.status(404).json({ success: false, message: 'Produk tidak ditemukan' });
-        }
-        
-        res.status(200).json({ success: true, data: product });
-    } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
-    }
+  try {
+    const product = await productUseCase.getProductById(req.params.id);
+    res.status(200).json({ success: true, data: product });
+  } catch (error) {
+    const statusCode = error.statusCode || 500;
+    res.status(statusCode).json({ success: false, error: error.message });
+  }
 };
 
 /**
@@ -59,25 +46,13 @@ exports.getProductById = async (req, res) => {
  * @route   PUT /api/products/:id
  */
 exports.updateProduct = async (req, res) => {
-    const { id } = req.params;
-    const { name, price, stock } = req.body;
-    try {
-        const product = await prisma.product.update({
-            where: { id: Number(id) },
-            data: { 
-                name, 
-                price: price ? Number(price) : undefined, 
-                stock: stock ? Number(stock) : undefined 
-            }
-        });
-        res.status(200).json({ success: true, data: product });
-    } catch (error) {
-        // Kode error Prisma untuk Record Not Found
-        if (error.code === 'P2025') {
-            return res.status(404).json({ success: false, message: 'Produk tidak ditemukan' });
-        }
-        res.status(500).json({ success: false, error: error.message });
-    }
+  try {
+    const product = await productUseCase.updateProduct(req.params.id, req.body);
+    res.status(200).json({ success: true, data: product });
+  } catch (error) {
+    const statusCode = error.statusCode || 500;
+    res.status(statusCode).json({ success: false, error: error.message });
+  }
 };
 
 /**
@@ -85,16 +60,11 @@ exports.updateProduct = async (req, res) => {
  * @route   DELETE /api/products/:id
  */
 exports.deleteProduct = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await prisma.product.delete({ 
-            where: { id: Number(id) } 
-        });
-        res.status(200).json({ success: true, message: 'Produk berhasil dihapus' });
-    } catch (error) {
-        if (error.code === 'P2025') {
-            return res.status(404).json({ success: false, message: 'Produk tidak ditemukan' });
-        }
-        res.status(500).json({ success: false, error: error.message });
-    }
+  try {
+    await productUseCase.deleteProduct(req.params.id);
+    res.status(200).json({ success: true, message: "Produk berhasil dihapus" });
+  } catch (error) {
+    const statusCode = error.statusCode || 500;
+    res.status(statusCode).json({ success: false, error: error.message });
+  }
 };
